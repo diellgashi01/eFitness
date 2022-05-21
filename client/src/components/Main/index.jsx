@@ -10,11 +10,11 @@ const Main = () => {
 		<div className={styles.main_container}>
 			<nav className={styles.navbar}>
 				<h1>eFitness</h1>
+				<a href="/exercises"><h2>Exercises</h2></a>
 				<button className={styles.white_btn} onClick={handleLogout}>
 					Logout
 				</button>
 			</nav>
-			<h1>Test!</h1>
 		</div>
 	);
 };
