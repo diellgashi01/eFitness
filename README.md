@@ -1,2 +1,0 @@
-# eFitness
-eFitness App
