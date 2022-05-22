@@ -13,6 +13,7 @@ function App() {
 
 	return (
 		<Routes>
+			
 			{user && <Route path="/" exact element={<Main />} />}
 			{user && <Route path="/exercises" exact element={<Exercise />} />}
 			<Route path="/signup" exact element={<Signup />} />
