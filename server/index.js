@@ -75,7 +75,9 @@ app.post("/:id", (req, res) => {
         res.send(error);
     }
 });
-
+//tracker router
+const trackersRouter = require('./routes/trackers');
+app.use('/trackers', trackersRouter);
 
 const port = process.env.PORT || 8080;
 app.listen(port, console.log(`Listening on port ${port}...`));
