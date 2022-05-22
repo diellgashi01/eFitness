@@ -7,16 +7,27 @@ const Main = () => {
 	};
 
 	return (
-		<div className={styles.main_container}>
-			<nav className={styles.navbar}>
-				<h1>eFitness</h1>
-				<a href="/exercises"><h2>Exercises</h2></a>
-				<button className={styles.white_btn} onClick={handleLogout}>
-					Logout
-				</button>
-			</nav>
-		</div>
+		<nav class="navbar navbar-dark navbar-expand-sm bg-primary">
+  			<h3 class="text-white ms-3"> eFitness </h3>
+			  <div class="container-fluid">
+				<ul class="navbar-nav ">
+				<li class="nav-item">
+					<a class="nav-link text-white" href="/">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="/exercises">Exercises</a>
+				</li>
+				
+				</ul>
+				<ul class="navbar-nav navbar-right">
+				<li class="nav-item">
+					<a class="nav-link text-white" href="#" onClick={handleLogout}>Logout</a>
+				</li>
+				</ul>
+			</div>
+		</nav>
 	);
 };
 
 export default Main;
+//onClick={handleLogout}

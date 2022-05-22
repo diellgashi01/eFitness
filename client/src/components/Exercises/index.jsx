@@ -4,6 +4,10 @@ import { getExercises } from "../../exerciseAPI"
 
 
 const Exercise = () => {
+    const handleLogout = () => {
+		localStorage.removeItem("token");
+		window.location.reload();
+	};
   const [items, setItems] = useState([])
 
   useEffect(() => {
@@ -14,8 +18,31 @@ const Exercise = () => {
     fetchItems()
   }, [])
 
-  return (
+  return (  
+<div>
+        <nav class="navbar navbar-dark navbar-expand-sm bg-primary">
+  			<h3 class="text-white ms-3"> eFitness </h3>
+			  <div class="container-fluid">
+				<ul class="navbar-nav ">
+				<li class="nav-item">
+					<a class="nav-link text-white" href="/">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="/exercises">Exercises</a>
+				</li>
+				
+				</ul>
+				<ul class="navbar-nav navbar-right">
+				<li class="nav-item">
+					<a class="nav-link text-white" href="#" onClick={handleLogout}>Logout</a>
+				</li>
+				</ul>
+			</div>
+		</nav>
+
     <div className="container">
+        
+
           <div className="mt-3">
               <h3>Exercise List</h3>
               <table className="table table-striped mt-3">
@@ -44,6 +71,7 @@ const Exercise = () => {
               </table>
           </div>
       </div>
+    </div>
   );
 };
 
