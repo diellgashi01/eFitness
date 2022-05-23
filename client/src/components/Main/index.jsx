@@ -10,7 +10,10 @@ const Main = () => {
 
 	return (
 	<div>
-			<Navbar />
+		<div>
+				<Navbar />
+		</div>
+		<center><h2>Welcome to eFitness</h2></center>
 	</div>
 	);
 };

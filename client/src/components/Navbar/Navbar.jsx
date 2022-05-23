@@ -15,7 +15,7 @@ const Navbar = () => {
 					<a class="nav-link text-white" href="/">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-white" href="/tracker">Tracker</a>
+					<a class="nav-link text-white" href="/trackers">Tracker</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link text-white" href="/exercises">Exercises</a>
@@ -24,7 +24,7 @@ const Navbar = () => {
 				</ul>
 				<ul class="navbar-nav navbar-right">
 				<li class="nav-item">
-					<a class="nav-link text-white" href="#" onClick={handleLogout}>Logout</a>
+					<a class="nav-link text-white" href="/" onClick={handleLogout}>Logout</a>
 				</li>
 				</ul>
 			</div>
