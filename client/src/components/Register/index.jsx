@@ -47,8 +47,9 @@ const Signup = () => {
 					</Link>
 				</div>
 				<div className={styles.right}>
+				<h1>eFitness</h1>
 					<form className={styles.form_container} onSubmit={handleSubmit}>
-						<h1>Create an Account</h1>
+						<h3>Create an Account</h3>
 						<input
 							type="text"
 							placeholder="First Name"
