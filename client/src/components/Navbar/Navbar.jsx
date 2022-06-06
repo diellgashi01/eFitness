@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import styles from "./Navbar.css";
+
 const Navbar = () => {
     const handleLogout = () => {
 		localStorage.removeItem("token");
 		window.location.reload();
 	};
+
+
     return(
         <nav class="navbar navbar-dark navbar-expand-sm bg-primary">
+			<img id='navbar_logo' src="/372.jpg" alt="logo"/>
   			<h3 class="text-white ms-3"> eFitness </h3>
 			  <div class="container-fluid">
 				<ul class="navbar-nav ">

@@ -39,6 +39,7 @@ const Signup = () => {
 		<div className={styles.signup_container}>
 			<div className={styles.signup_form_container}>
 				<div className={styles.left}>
+				
 					<h2>Already have an account?</h2>
 					<Link to="/login">
 						<button type="button" className={styles.white_btn}>
@@ -47,6 +48,7 @@ const Signup = () => {
 					</Link>
 				</div>
 				<div className={styles.right}>
+				<img src="/372.jpg" alt="logo" />
 				<h1>eFitness</h1>
 					<form className={styles.form_container} onSubmit={handleSubmit}>
 						<h3>Create an Account</h3>

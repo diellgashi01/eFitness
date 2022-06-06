@@ -33,6 +33,7 @@ const Login = () => {
 		<div className={styles.login_container}>
 			<div className={styles.login_form_container}>
 				<div className={styles.left}>
+					<img src="/372.jpg" alt="logo" />
 					<h1>eFitness</h1>
 					<form className={styles.form_container} onSubmit={handleSubmit}>
 						<h3>Login to Your Account</h3>
