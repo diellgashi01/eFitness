@@ -1,4 +1,6 @@
-// import {configureStore} from "redux"
+// // import configureStore from "redux"
+// import store from "redux";
+// import { configureStore } from "@reduxjs/toolkit";
 
 // const initialState = {
 //     user: undefined,
@@ -17,6 +19,6 @@
 //     }
 // }
 
-// const store = configureStore(handleState)
+// // const store = configureStore(handleState)
 
 // export default store  

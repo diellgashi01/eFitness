@@ -1,16 +1,17 @@
 import { StarOutlined, PlusOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Typography, Button, Form, message, Input, Icon } from 'antd';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 
 const { Title } = Typography;
 const { TextArea } = Input;
 
+
 const Private = [
-    { value: 0, label:'Private'},
-    { value: 1, label:'Public'}
+    { value: 0, label: 'Private' },
+    { value: 1, label: 'Public' }
 ]
 
 const Catogory = [
@@ -22,7 +23,8 @@ const Catogory = [
 ]
 
 function UploadVideoPage() {
-    const user =useSelector(state => state.user);
+    //  const user = useSelector((state) => state.user);
+   
 
     const [title, setTitle] = useState("");
     const [Description, setDescription] = useState("");
@@ -33,7 +35,7 @@ function UploadVideoPage() {
     const [Thumbnail, setThumbnail] = useState("")
 
 
-    const handleChangeTitle = ( event ) => {
+    const handleChangeTitle = (event) => {
         setTitle(event.currentTarget.value)
     }
 
@@ -53,11 +55,11 @@ function UploadVideoPage() {
 
     const onSubmit = () => {
 
-        // event.preventDefault();
+       
 
-        if (user.userData && !user.userData.isAuth) {
-            return alert('Please Log in First')
-        }
+        // if (user.userData && !user.userData.isAuth) {
+        //     return alert('Please Log in First')
+        // }
 
         if (title === "" || Description === "" ||
             Categories === "" || FilePath === "" ||
@@ -65,9 +67,8 @@ function UploadVideoPage() {
             return alert('Please first fill all the fields')
         }
 
-
-        const variables ={
-            writer: user.userData._id,
+        const variables = {
+          //  writer: user.userData._id,
             title: title,
             description: Description,
             privacy: privacy,
@@ -77,9 +78,18 @@ function UploadVideoPage() {
             thumbnail: Thumbnail
         }
 
-        axios.post('http://localhost:8080/api/video/uploadVideo', variables)
+        axios.post('/api/video/uploadVideo', variables)
+            .then(response => {
+                if (response.data.success) {
+                    alert('video Uploaded Successfully')
+                    // props.history.push('/')
+                } else {
+                    alert('Failed to upload video')
+                }
+            })
 
     }
+
 
     const onDrop = ( files ) => {
 
