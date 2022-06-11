@@ -3,7 +3,7 @@ import React, { useState, useEffect} from 'react'
 import { Typography, Button, Form, message, Input, Icon } from 'antd';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
-import { ConfigConsumer } from 'antd/lib/config-provider';
+import {useSelector} from "react-redux";
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -22,6 +22,7 @@ const Catogory = [
 ]
 
 function UploadVideoPage() {
+    const user =useSelector(state => state.user);
 
     const [title, setTitle] = useState("");
     const [Description, setDescription] = useState("");
@@ -51,7 +52,33 @@ function UploadVideoPage() {
     }
 
     const onSubmit = () => {
-        
+
+        // event.preventDefault();
+
+        if (user.userData && !user.userData.isAuth) {
+            return alert('Please Log in First')
+        }
+
+        if (title === "" || Description === "" ||
+            Categories === "" || FilePath === "" ||
+            Duration === "" || Thumbnail === "") {
+            return alert('Please first fill all the fields')
+        }
+
+
+        const variables ={
+            writer: user.userData._id,
+            title: title,
+            description: Description,
+            privacy: privacy,
+            filePath: FilePath,
+            category: Categories,
+            duration: Duration,
+            thumbnail: Thumbnail
+        }
+
+        axios.post('http://localhost:8080/api/video/uploadVideo', variables)
+
     }
 
     const onDrop = ( files ) => {
@@ -63,7 +90,7 @@ function UploadVideoPage() {
         console.log(files)
         formData.append("file", files[0])
 
-        
+
         axios.post('http://localhost:8080/api/video/uploadfiles', formData, config)
         .then(response=> {
             if(response.data.success){
@@ -74,8 +101,8 @@ function UploadVideoPage() {
                 }
                 setFilePath(response.data.filePath)
 
-                //gerenate thumbnail with this filepath ! 
-                 
+                //gerenate thumbnail with this filepath !
+
                 axios.post('http://localhost:8080/api/video/thumbnail', variable)
                 .then(response => {
                     if(response.data.success) {
@@ -102,7 +129,7 @@ function UploadVideoPage() {
 
         <Form onSubmit={onSubmit}>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Dropzone 
+                <Dropzone
                     onDrop={onDrop}
                     multiple={false}
                     maxSize={800000000}>
