@@ -10,6 +10,7 @@ import CreateTracker from "./components/Tracker/CreateTracker";
 import EditTracker from "./components/Tracker/EditTracker";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbar/Navbar";
+import UploadVideoPage from "./components/UploadVideoPage/UploadVideoPage"
 
 function App() {
 	const user = localStorage.getItem("token");
@@ -27,6 +28,9 @@ function App() {
 			{user && <Route path="/trackers" exact element={<TrackerList />}/>}
 			{user && <Route path="/tracker/create" component={CreateTracker}/>}
 			{user && <Route path="/tracker/edit/:id" component={EditTracker}/>}
+			{user && <Route path="/video/upload" exact element={<UploadVideoPage />} />}
+			
+
 		</Routes>
 	);
 }

@@ -6,16 +6,20 @@ const connection = require("./db");
 const userRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
 
+
 // database connection
 connection();
 
 // middlewares
 app.use(express.json());
 app.use(cors());
+app.use('/uploads', express.static('uploads'));
 
 // routes
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/Video", require('./routes/video'));
+
 
 //exercise router
 const exercisesRouter = require('./routes/exercises');
