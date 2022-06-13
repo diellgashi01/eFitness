@@ -53,8 +53,10 @@ export default class TrackerList extends Component {
         <div>
           <Navbar />
         </div>
+        <br />
         <center>
         <h3>Exercise Tracker</h3>
+        <br />
         <table className="table table-striped table-bordered w-50 h-75">
           <thead className="thead-light">
             <tr>

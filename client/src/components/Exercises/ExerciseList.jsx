@@ -53,7 +53,9 @@ export default class ExerciseList extends Component {
         <div>
           <Navbar />
         </div>
+        <br />
         <h3><center>Exercise List</center></h3>
+        <br />
         <center>
         <table className="table table-striped table-bordered w-50 h-75">
           <thead className="thead-light">
@@ -68,7 +70,8 @@ export default class ExerciseList extends Component {
           </tbody>
           
         </table>
-        <a href="/exercises/create"><button type="button" class="btn btn-primary ">Create Exercise</button></a>
+        <a href="/exercises/create"><button type="button" class="btn btn-primary ">Create Exercise</button></a> <br /> <br />
+        <a href="/dashboard/"><button type="button" class="btn btn-secondary ">Go back to Dashboard</button></a>
         </center>
       </div>
     )

@@ -30,6 +30,10 @@ app.use("/api/dietCategories", dietCategoriesRoutes);
 const exercisesRouter = require('./routes/exercises');
 app.use('/exercises', exercisesRouter);
 
+//usersCrud router
+const usersCRUDRouter = require('./routes/usersCRUD');
+app.use('/api/usersCRUD', usersCRUDRouter);
+
 
 //tracker router
 const trackersRouter = require('./routes/trackers');

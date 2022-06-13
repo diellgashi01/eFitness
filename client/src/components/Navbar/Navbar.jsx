@@ -23,7 +23,13 @@ const Navbar = () => {
 					<a class="nav-link text-white" href="/trackers">Tracker</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link text-white" href="/exercises">Exercises</a>
+					<a class="nav-link text-white" href="/diets">Diets</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="/videos">Videos</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="/dashboard">Dashboard</a>
 				</li>
 				
 				</ul>
