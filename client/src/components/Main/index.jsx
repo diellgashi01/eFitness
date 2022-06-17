@@ -17,7 +17,8 @@ const Main = () => {
             <div class="container px-lg-5">
                 <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
                     <div class="m-4 m-lg-5">
-                    <img src="/372.jpg" alt="logo" />
+                    {/* <img src="/372.jpg" alt="logo" /> */}
+                    
                         <h1 class="display-5 fw-bold">Welcome to eFitness</h1>
                         <p class="fs-4">An online way of tracking your fitness progress and finding all kinds of fitness-related diets and videos. The future of fitness is here!</p>
                     </div>

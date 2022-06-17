@@ -1,9 +1,10 @@
-import { StarOutlined, PlusOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
+import {  PlusOutlined,  } from '@ant-design/icons';
 import React, { useState, useEffect } from 'react'
-import { Typography, Button, Form, message, Input, Icon } from 'antd';
+import { Typography, Button, Form, message, Input,  } from 'antd';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import { useSelector } from "react-redux";
+
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -15,21 +16,21 @@ const Private = [
 ]
 
 const Catogory = [
-    { value: 0, label: "Film & Animation" },
-    { value: 0, label: "Autos & Vehicles" },
-    { value: 0, label: "Music" },
-    { value: 0, label: "Pets & Animals" },
-    { value: 0, label: "Sports" },
+    { value: 0, label: " Home Workouts" },
+    { value: 0, label: " Promotional videos for Social Media" },
+    { value: 0, label: "Live Video Classes" },
+    { value: 0, label: "Demonstration Workout Videos" },
+    { value: 0, label: "No-equipment workout Videos" },
 ]
 
-function UploadVideoPage() {
-    //  const user = useSelector((state) => state.user);
+function UploadVideoPage(props) {
+    const user = useSelector((state) => state.user);
    
 
     const [title, setTitle] = useState("");
     const [Description, setDescription] = useState("");
     const [privacy, setPrivacy] = useState(0)
-    const [Categories, setCategories] = useState("Film & Animation")
+    const [Categories, setCategories] = useState("Home Workouts")
     const [FilePath, setFilePath] = useState("")
     const [Duration, setDuration] = useState("")
     const [Thumbnail, setThumbnail] = useState("")
@@ -57,9 +58,9 @@ function UploadVideoPage() {
 
        
 
-        // if (user.userData && !user.userData.isAuth) {
-        //     return alert('Please Log in First')
-        // }
+        if (user.userData && !user.userData.isAuth) {
+            return alert('Please Log in First')
+        }
 
         if (title === "" || Description === "" ||
             Categories === "" || FilePath === "" ||
@@ -67,8 +68,9 @@ function UploadVideoPage() {
             return alert('Please first fill all the fields')
         }
 
+            
         const variables = {
-          //  writer: user.userData._id,
+            writer: user.userData_id,
             title: title,
             description: Description,
             privacy: privacy,
@@ -78,11 +80,11 @@ function UploadVideoPage() {
             thumbnail: Thumbnail
         }
 
-        axios.post('/api/video/uploadVideo', variables)
+        axios.post('http://localhost:8080/api/video/uploadVideo', variables)
             .then(response => {
                 if (response.data.success) {
                     alert('video Uploaded Successfully')
-                    // props.history.push('/')
+                   props.history.push('/')
                 } else {
                     alert('Failed to upload video')
                 }
